@@ -44,4 +44,10 @@ view: order_items {
     type: sum
     sql: ${order_line_sales} ;;
   }
+
+  measure: total_quantity {
+    hidden: no
+    type: sum
+    sql: ${quantity} ;;
+  }
 }

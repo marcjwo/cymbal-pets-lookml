@@ -102,10 +102,10 @@ view: products {
   }
   dimension: supplier_id {
     type: number
-    # hidden: yes
     sql: ${TABLE}.supplier_id ;;
   }
   measure: count {
+    hidden: no
     type: count
     drill_fields: [detail*]
   }

@@ -8,17 +8,27 @@ view: stores {
     sql: ${TABLE}.store_id ;;
   }
   dimension: latitude {
+    group_label: "Location"
     type: number
     sql: ${TABLE}.latitude ;;
   }
-  dimension: location {
-    type: string
-    sql: ${TABLE}.location ;;
-  }
   dimension: longitude {
+    group_label: "Location"
     type: number
     sql: ${TABLE}.longitude ;;
   }
+  dimension: location {
+    group_label: "Location"
+    type: location
+    sql_latitude: ${latitude} ;;
+    sql_longitude: ${longitude} ;;
+  }
+  dimension: city_state {
+    group_label: "Location"
+    type: string
+    sql: ${TABLE}.location ;;
+  }
+
   dimension: manager_id {
     type: number
     sql: ${TABLE}.manager_id ;;

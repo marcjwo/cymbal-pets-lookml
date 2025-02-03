@@ -44,6 +44,7 @@ view: customers {
     sql: ${TABLE}.loyalty_member ;;
   }
   measure: count {
+    hidden: no
     type: count
     drill_fields: [customer_id, last_name, first_name, orders.count]
   }

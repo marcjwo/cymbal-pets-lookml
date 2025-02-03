@@ -9,10 +9,20 @@ explore: order_items {
     sql_on: ${orders.order_id} = ${order_items.order_id} ;;
     relationship: many_to_one
   }
+  join: stores {
+    type: left_outer
+    sql_on: ${stores.store_id} = ${orders.store_id} ;;
+    relationship: many_to_one
+  }
   join: products {
     view_label: "Products"
     type: left_outer
-    sql_on: ${order_items.product_id} = ${products.product_id} ;;
+    sql_on: ${products.product_id} = ${order_items.product_id} ;;
+    relationship: many_to_one
+  }
+  join: suppliers {
+    type: left_outer
+    sql_on: ${suppliers.supplier_id} = ${products.supplier_id} ;;
     relationship: many_to_one
   }
   join: customers {

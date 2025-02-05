@@ -1,5 +1,5 @@
 view: suppliers {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.suppliers` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.suppliers` ;;
   drill_fields: [supplier_id]
 
   dimension: supplier_id {

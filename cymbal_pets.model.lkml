@@ -1,3 +1,4 @@
+# connection: "default_bigquery_connection"
 connection: "@{connection_name}"
 
 label: "Cymbal Pets"

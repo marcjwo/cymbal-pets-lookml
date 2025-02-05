@@ -1,5 +1,5 @@
 view: order_items {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.order_items` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.order_items` ;;
   drill_fields: [order_item_id]
   fields_hidden_by_default: yes
 

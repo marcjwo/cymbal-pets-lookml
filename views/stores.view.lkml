@@ -1,5 +1,5 @@
 view: stores {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.stores` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.stores` ;;
   drill_fields: [store_id]
 
   dimension: store_id {

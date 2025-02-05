@@ -8,7 +8,7 @@ explore: products {
     }
 }
 view: products {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.products` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.products` ;;
   drill_fields: [product_id]
   fields_hidden_by_default: yes
 

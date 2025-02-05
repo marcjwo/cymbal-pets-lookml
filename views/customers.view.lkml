@@ -1,5 +1,5 @@
 view: customers {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.customers` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.customers` ;;
   drill_fields: [customer_id]
   fields_hidden_by_default: yes
 

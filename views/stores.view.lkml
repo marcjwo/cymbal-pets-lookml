@@ -29,6 +29,18 @@ view: stores {
     sql: ${TABLE}.location ;;
   }
 
+  dimension: state {
+    group_label: "Location"
+    type: string
+    sql: CASE
+        WHEN ${city_state} LIKE 'Washington, D.C.' THEN 'D.C.'             -- Handles "City, D.C."
+        WHEN ${city_state} LIKE 'Online' THEN 'Online'
+        WHEN ${city_state} LIKE '%, %' THEN RIGHT(${city_state}, 2)  -- Handles "City, ST"
+        WHEN ${city_state} LIKE '%/%' THEN SPLIT(${city_state}, '/')[OFFSET(1)] -- Handles "City/ST" (if that's a possibility)
+        ELSE NULL  -- Handles cases where the format isn't recognized
+    END;;
+  }
+
   dimension: manager_id {
     type: number
     sql: ${TABLE}.manager_id ;;

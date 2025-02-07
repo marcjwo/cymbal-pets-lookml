@@ -1,6 +1,9 @@
 include: "/views/*.view"
 
 explore: order_items {
+  # Removing all the null values for customers
+  sql_always_where: ${customers.customer_id} IS NOT NULL AND ${stores.location} IS NOT NULL ;;
+
   label: "(1) Orders, Products and Customers"
   view_label: "Orders and Order Items"
   join: orders {

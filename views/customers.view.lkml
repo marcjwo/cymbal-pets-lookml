@@ -14,6 +14,13 @@ view: customers {
     type: string
     sql: ${TABLE}.address_city ;;
   }
+
+  dimension: address_state {
+    hidden: no
+    type: string
+    sql: ${TABLE}.address_state ;;
+  }
+
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;

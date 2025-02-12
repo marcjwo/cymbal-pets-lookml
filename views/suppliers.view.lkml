@@ -7,10 +7,18 @@ view: suppliers {
     type: number
     sql: ${TABLE}.supplier_id ;;
   }
-  dimension: address {
+  dimension: address_city {
+    hidden: no
     type: string
-    sql: ${TABLE}.address ;;
+    sql: ${TABLE}.address_city ;;
   }
+
+  dimension: address_state {
+    hidden: no
+    type: string
+    sql: ${TABLE}.address_state ;;
+  }
+
   dimension: contact_name {
     type: string
     sql: ${TABLE}.contact_name ;;

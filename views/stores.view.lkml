@@ -17,28 +17,40 @@ view: stores {
     type: number
     sql: ${TABLE}.longitude ;;
   }
-  dimension: location {
-    group_label: "Location"
-    type: location
-    sql_latitude: ${latitude} ;;
-    sql_longitude: ${longitude} ;;
-  }
-  dimension: city_state {
-    group_label: "Location"
+  # dimension: location {
+  #   group_label: "Location"
+  #   type: location
+  #   sql_latitude: ${latitude} ;;
+  #   sql_longitude: ${longitude} ;;
+  # }
+  # dimension: city_state {
+  #   group_label: "Location"
+  #   type: string
+  #   sql: ${TABLE}.location ;;
+  # }
+
+  # dimension: state {
+  #   group_label: "Location"
+  #   type: string
+  #   sql: CASE
+  #       WHEN ${city_state} LIKE 'Washington, D.C.' THEN 'D.C.'             -- Handles "City, D.C."
+  #       WHEN ${city_state} LIKE 'Online' THEN 'Online'
+  #       WHEN ${city_state} LIKE '%, %' THEN RIGHT(${city_state}, 2)  -- Handles "City, ST"
+  #       WHEN ${city_state} LIKE '%/%' THEN SPLIT(${city_state}, '/')[OFFSET(1)] -- Handles "City/ST" (if that's a possibility)
+  #       ELSE NULL  -- Handles cases where the format isn't recognized
+  #   END;;
+  # }
+
+  dimension: address_city {
+    hidden: no
     type: string
-    sql: ${TABLE}.location ;;
+    sql: ${TABLE}.address_city ;;
   }
 
-  dimension: state {
-    group_label: "Location"
+  dimension: address_state {
+    hidden: no
     type: string
-    sql: CASE
-        WHEN ${city_state} LIKE 'Washington, D.C.' THEN 'D.C.'             -- Handles "City, D.C."
-        WHEN ${city_state} LIKE 'Online' THEN 'Online'
-        WHEN ${city_state} LIKE '%, %' THEN RIGHT(${city_state}, 2)  -- Handles "City, ST"
-        WHEN ${city_state} LIKE '%/%' THEN SPLIT(${city_state}, '/')[OFFSET(1)] -- Handles "City/ST" (if that's a possibility)
-        ELSE NULL  -- Handles cases where the format isn't recognized
-    END;;
+    sql: ${TABLE}.address_state ;;
   }
 
   dimension: manager_id {

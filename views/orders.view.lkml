@@ -41,10 +41,16 @@ view: orders {
     # hidden: yes
     sql: ${TABLE}.store_id ;;
   }
+
   measure: total_orders {
     hidden: no
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: average_orders {
+    hidden: no
+    type: average
   }
 
   # ----- Sets of fields for drilling ------

@@ -1,6 +1,9 @@
+include: "/extensions/regions.view.lkml"
+
 view: customers {
   sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.customers` ;;
   drill_fields: [customer_id]
+  extends: [regions]
   fields_hidden_by_default: yes
 
   dimension: customer_id {

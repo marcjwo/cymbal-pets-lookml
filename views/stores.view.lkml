@@ -1,6 +1,9 @@
+include: "/extensions/regions.view.lkml"
+
 view: stores {
   sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.stores` ;;
   drill_fields: [store_id]
+  extends: [regions]
 
   dimension: store_id {
     primary_key: yes

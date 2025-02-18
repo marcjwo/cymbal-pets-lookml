@@ -1,9 +1,6 @@
 include: "/views/*.view"
 
 explore: order_items {
-  # Removing all the null values for customers, needs to be adjusted but left as is for now
-  sql_always_where: ${customers.customer_id} IS NOT NULL AND ${stores.store_id} IS NOT NULL ;;
-
   label: "(1) Orders, Products and Customers"
   view_label: "Orders and Order Items"
   join: orders {
@@ -32,6 +29,7 @@ explore: order_items {
     view_label: "Customers"
     type: left_outer
     sql_on: ${customers.customer_id} = ${orders.customer_id} ;;
+    sql_where: ${customers.customer_id} IS NOT NULL ;;
     relationship: many_to_one
   }
 }

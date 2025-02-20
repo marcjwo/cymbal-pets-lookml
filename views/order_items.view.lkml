@@ -45,9 +45,22 @@ view: order_items {
     sql: ${order_line_sales} ;;
   }
 
+  measure: average_sales {
+    hidden: no
+    value_format_name: usd
+    type: average
+    sql: ${order_line_sales} ;;
+  }
+
   measure: total_quantity {
     hidden: no
     type: sum
     sql: ${quantity} ;;
+  }
+
+  measure: average_quantity {
+    hidden: no
+    type: average
+    sql: ${quantity};;
   }
 }

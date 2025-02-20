@@ -1,6 +1,9 @@
+include: "/extensions/regions.view.lkml"
+
 view: customers {
   sql_table_name: `@{gcp_project}.@{bq_dataset}.customers` ;;
   drill_fields: [customer_id]
+  extends: [regions]
   fields_hidden_by_default: yes
 
   dimension: customer_id {
@@ -14,6 +17,13 @@ view: customers {
     type: string
     sql: ${TABLE}.address_city ;;
   }
+
+  dimension: address_state {
+    hidden: no
+    type: string
+    sql: ${TABLE}.address_state ;;
+  }
+
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;

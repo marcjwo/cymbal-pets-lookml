@@ -12,6 +12,7 @@ explore: order_items {
   join: stores {
     type: left_outer
     sql_on: ${stores.store_id} = ${orders.store_id} ;;
+    sql_where: ${stores.store_id} IS NOT NULL ;;
     relationship: many_to_one
   }
   join: products {
@@ -29,6 +30,7 @@ explore: order_items {
     view_label: "Customers"
     type: left_outer
     sql_on: ${customers.customer_id} = ${orders.customer_id} ;;
+    sql_where: ${customers.customer_id} IS NOT NULL ;;
     relationship: many_to_one
   }
 }

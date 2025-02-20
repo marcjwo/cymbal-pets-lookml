@@ -1,16 +1,27 @@
+include: "/extensions/regions.view.lkml"
+
 view: suppliers {
   sql_table_name: `@{gcp_project}.@{bq_dataset}.suppliers` ;;
   drill_fields: [supplier_id]
+  extends: [regions]
 
   dimension: supplier_id {
     primary_key: yes
     type: number
     sql: ${TABLE}.supplier_id ;;
   }
-  dimension: address {
+  dimension: address_city {
+    hidden: no
     type: string
-    sql: ${TABLE}.address ;;
+    sql: ${TABLE}.address_city ;;
   }
+
+  dimension: address_state {
+    hidden: no
+    type: string
+    sql: ${TABLE}.address_state ;;
+  }
+
   dimension: contact_name {
     type: string
     sql: ${TABLE}.contact_name ;;

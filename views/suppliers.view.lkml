@@ -1,14 +1,29 @@
 include: "/extensions/regions.view.lkml"
+include: "/extensions/location.view.lkml"
 
 view: suppliers {
   sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.suppliers` ;;
+  fields_hidden_by_default: yes
   drill_fields: [supplier_id]
-  extends: [regions]
+  extends: [regions, location]
 
   dimension: supplier_id {
     primary_key: yes
     type: number
     sql: ${TABLE}.supplier_id ;;
+  }
+  dimension: supplier_name {
+    hidden: no
+    type: string
+    sql: ${TABLE}.supplier_name ;;
+  }
+  dimension: contact_name {
+    type: string
+    sql: ${TABLE}.contact_name ;;
+  }
+  dimension: email {
+    type: string
+    sql: ${TABLE}.email ;;
   }
   dimension: address_city {
     hidden: no
@@ -22,21 +37,17 @@ view: suppliers {
     sql: ${TABLE}.address_state ;;
   }
 
-  dimension: contact_name {
-    type: string
-    sql: ${TABLE}.contact_name ;;
-  }
-  dimension: email {
-    type: string
-    sql: ${TABLE}.email ;;
-  }
   dimension: phone_number {
     type: string
     sql: ${TABLE}.phone_number ;;
   }
-  dimension: supplier_name {
+  dimension: latitude {
     type: string
-    sql: ${TABLE}.supplier_name ;;
+    sql: ${TABLE}.latitude ;;
+  }
+  dimension: longitude {
+    type: string
+    sql: ${TABLE}.longitude ;;
   }
   measure: count {
     type: count

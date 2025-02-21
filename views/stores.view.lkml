@@ -1,9 +1,10 @@
 include: "/extensions/regions.view.lkml"
-
+include: "/extensions/location.view.lkml"
 view: stores {
   sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.stores` ;;
+  fields_hidden_by_default: yes
   drill_fields: [store_id]
-  extends: [regions]
+  extends: [regions, location]
 
   dimension: store_id {
     primary_key: yes
@@ -103,6 +104,7 @@ view: stores {
     group_item_label: "Wednesday"
   }
   dimension: store_name {
+    hidden: no
     type: string
     sql: ${TABLE}.store_name ;;
   }

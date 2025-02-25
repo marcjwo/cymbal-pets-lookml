@@ -2,6 +2,7 @@ include: "/extensions/regions.view.lkml"
 include: "/extensions/location.view.lkml"
 view: stores {
   sql_table_name: `@{gcp_project}.@{bq_dataset}.stores` ;;
+  fields_hidden_by_default: yes
   drill_fields: [store_id]
   extends: [regions, location]
 

@@ -3,6 +3,7 @@ include: "/extensions/location.view.lkml"
 
 view: suppliers {
   sql_table_name: `@{gcp_project}.@{bq_dataset}.suppliers` ;;
+  fields_hidden_by_default: yes
   drill_fields: [supplier_id]
   extends: [regions, location]
 

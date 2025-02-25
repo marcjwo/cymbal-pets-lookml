@@ -5,7 +5,7 @@ constant: connection_name {
 }
 
 constant: gcp_project {
-  value: "cloudbi-opm-joonix-playground"
+  value: "gemini-looker-demo-dataset"
 }
 
 constant: bq_dataset {

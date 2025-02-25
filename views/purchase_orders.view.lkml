@@ -1,5 +1,5 @@
 view: purchase_orders {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.purchase_orders` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.purchase_orders` ;;
   fields_hidden_by_default: yes
   drill_fields: [purchase_order_id]
   view_label: "Purchase Orders"

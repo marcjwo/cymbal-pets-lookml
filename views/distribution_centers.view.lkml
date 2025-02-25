@@ -2,7 +2,7 @@ include: "/extensions/regions.view.lkml"
 include: "/extensions/location.view.lkml"
 
 view: distribution_centers {
-  sql_table_name: `gemini-looker-demo-dataset.cymbal_pets.distribution_centers` ;;
+  sql_table_name: `@{gcp_project}.@{bq_dataset}.distribution_centers` ;;
   fields_hidden_by_default: yes
   drill_fields: [distribution_center_id]
   extends: [regions,location]

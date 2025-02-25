@@ -4,6 +4,7 @@ connection: "@{connection_name}"
 label: "Cymbal Pets"
 
 include: "/explores/orders.explore.lkml"
+include: "/explores/purchases.explore.lkml"
 # include: "/views/refined/customers.view.lkml"
 # include: "/views/pdt/orders_and_items_flat.view.lkml"
 

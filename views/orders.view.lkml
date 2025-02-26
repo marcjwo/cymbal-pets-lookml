@@ -49,7 +49,7 @@ view: orders {
   }
 
   measure: average_orders {
-    hidden: no
+    hidden: yes
     type: average
   }
 

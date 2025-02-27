@@ -52,17 +52,30 @@ view: purchase_orders {
     sql: ${quantity} ;;
   }
 
-  dimension: purchase_order_price {
+  dimension: purchase_order_sales {
     hidden: yes
     type: number
     sql: ${products.price} * ${quantity} ;;
   }
 
-  measure: total_purchase_order_price {
+  dimension: purchase_order_costs {
+    hidden: yes
+    type: number
+    sql: ${products.cost} * ${quantity} ;;
+  }
+
+  measure: total_purchase_order_sales {
     hidden: no
     value_format_name: usd
     type: sum
-    sql: ${purchase_order_price} ;;
+    sql: ${purchase_order_sales} ;;
+  }
+
+  measure: total_purchase_order_costs {
+    hidden: no
+    value_format_name: usd
+    type: sum
+    sql: ${purchase_order_costs} ;;
   }
 
   measure: average_lead_time {

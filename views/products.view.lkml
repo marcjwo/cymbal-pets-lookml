@@ -91,6 +91,11 @@ view: products {
     type: number
     sql: ${TABLE}.price ;;
   }
+  dimension: cost {
+    hidden: no
+    type: number
+    sql: ${TABLE}.cost ;;
+  }
   dimension: product_name {
     hidden: no
     type: string

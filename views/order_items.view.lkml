@@ -17,6 +17,11 @@ view: order_items {
     type: number
     sql: ${TABLE}.price ;;
   }
+
+  dimension: cost {
+    type: number
+    sql: ${TABLE}.cost ;;
+  }
   dimension: product_id {
     hidden: yes
     type: number
@@ -29,20 +34,41 @@ view: order_items {
     sql: ${TABLE}.quantity ;;
   }
   dimension: order_line_sales {
-    hidden: no
+    hidden:yes
     type: number
     sql: ${quantity}*${price} ;;
   }
+
+  dimension: order_line_margin {
+    hidden:yes
+    type: number
+    sql: ${price}-${cost} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [order_item_id, products.product_id, products.product_name, orders.order_id]
+  }
+
+  measure: total_margin {
+    hidden: no
+    value_format_name: usd
+    type: sum
+    sql: ${order_line_margin} ;;
   }
 
   measure: total_sales {
     hidden: no
     value_format_name: usd
     type: sum
-    sql: ${order_line_sales} ;;
+    sql: ${price} ;;
+  }
+
+  measure: total_cost {
+    hidden: no
+    value_format_name: usd
+    type: sum
+    sql: ${cost} ;;
   }
 
   measure: average_sales {

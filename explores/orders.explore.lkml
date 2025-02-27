@@ -16,7 +16,7 @@ explore: order_items {
     relationship: many_to_one
   }
   join: products {
-    view_label: "Products"
+    # view_label: "Products"
     type: left_outer
     sql_on: ${products.product_id} = ${order_items.product_id} ;;
     relationship: many_to_one
@@ -27,10 +27,15 @@ explore: order_items {
     relationship: many_to_one
   }
   join: customers {
-    view_label: "Customers"
+    # view_label: "Customers"
     type: left_outer
     sql_on: ${customers.customer_id} = ${orders.customer_id} ;;
     sql_where: ${customers.customer_id} IS NOT NULL ;;
     relationship: many_to_one
+  }
+  join: pet_profiles {
+    type: left_outer
+    sql_on: ${customers.customer_id} = ${pet_profiles.customer_id} ;;
+    relationship: one_to_one
   }
 }

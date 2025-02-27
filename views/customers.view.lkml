@@ -1,6 +1,7 @@
 include: "/extensions/regions.view.lkml"
 
 view: customers {
+  label: "Customers"
   sql_table_name: `@{gcp_project}.@{bq_dataset}.customers` ;;
   drill_fields: [customer_id]
   extends: [regions]

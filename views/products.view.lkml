@@ -8,6 +8,7 @@ explore: products {
     }
 }
 view: products {
+  label: "Products"
   sql_table_name: `@{gcp_project}.@{bq_dataset}.products` ;;
   drill_fields: [product_id]
   fields_hidden_by_default: yes

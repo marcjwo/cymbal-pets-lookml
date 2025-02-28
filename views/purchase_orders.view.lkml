@@ -23,7 +23,7 @@ view: purchase_orders {
   dimension_group: purchase_delivery {
     hidden: no
     type: time
-    timeframes: [raw, date, week, month, quarter, year]
+    timeframes: [raw, date, week_of_year, quarter_of_year, year, month_name, month]
     convert_tz: no
     datatype: date
     sql: ${TABLE}.purchase_delivery_date ;;
@@ -31,7 +31,7 @@ view: purchase_orders {
   dimension_group: purchase_order {
     hidden: no
     type: time
-    timeframes: [raw, date, week, month, quarter, year]
+    timeframes: [raw, date, week_of_year, quarter_of_year, year, month_name]
     convert_tz: no
     datatype: date
     sql: ${TABLE}.purchase_order_date ;;
@@ -52,30 +52,30 @@ view: purchase_orders {
     sql: ${quantity} ;;
   }
 
-  dimension: purchase_order_sales {
+  dimension: price {
     hidden: yes
     type: number
-    sql: ${products.price} * ${quantity} ;;
+    sql: ${TABLE}.price ;;
   }
 
-  dimension: purchase_order_costs {
+  dimension: cost {
     hidden: yes
     type: number
-    sql: ${products.cost} * ${quantity} ;;
+    sql: ${TABLE}.cost ;;
   }
 
   measure: total_purchase_order_sales {
     hidden: no
     value_format_name: usd
     type: sum
-    sql: ${purchase_order_sales} ;;
+    sql: ${price} ;;
   }
 
   measure: total_purchase_order_costs {
     hidden: no
     value_format_name: usd
     type: sum
-    sql: ${purchase_order_costs} ;;
+    sql: ${cost} ;;
   }
 
   measure: average_lead_time {

@@ -16,7 +16,7 @@ view: orders {
   dimension_group: order {
     hidden: no
     type: time
-    timeframes: [raw, date, week, quarter, year, month_name]
+    timeframes: [raw, date, week_of_year, quarter_of_year, year, month_name, month]
     convert_tz: no
     datatype: date
     sql: ${TABLE}.order_date ;;

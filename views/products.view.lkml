@@ -107,6 +107,7 @@ view: products {
     sql: ${TABLE}.subcategory ;;
   }
   dimension: supplier_id {
+    hidden: no
     type: number
     sql: ${TABLE}.supplier_id ;;
   }

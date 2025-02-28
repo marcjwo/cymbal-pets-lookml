@@ -33,11 +33,11 @@ view: order_items {
     type: number
     sql: ${TABLE}.quantity ;;
   }
-  dimension: order_line_sales {
-    hidden:yes
-    type: number
-    sql: ${quantity}*${price} ;;
-  }
+  # dimension: order_line_sales {
+  #   hidden:yes
+  #   type: number
+  #   sql: ${quantity}*${price} ;;
+  # }
 
   dimension: order_line_margin {
     hidden:yes
@@ -75,7 +75,7 @@ view: order_items {
     hidden: no
     value_format_name: usd
     type: average
-    sql: ${order_line_sales} ;;
+    sql: ${price} ;;
   }
 
   measure: total_quantity {

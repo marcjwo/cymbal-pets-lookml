@@ -21,6 +21,7 @@ view: pet_profiles {
     sql: ${TABLE}.dietary_needs ;;
   }
   dimension: pet_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.pet_id ;;
   }
@@ -39,6 +40,7 @@ view: pet_profiles {
     sql: ${TABLE}.weight ;;
   }
   measure: count {
+    hidden: no
     type: count
     drill_fields: [pet_name]
   }

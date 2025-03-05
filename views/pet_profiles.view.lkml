@@ -4,6 +4,7 @@ view: pet_profiles {
   fields_hidden_by_default: yes
 
   dimension: activity_level {
+    hidden: no
     type: string
     sql: ${TABLE}.activity_level ;;
   }

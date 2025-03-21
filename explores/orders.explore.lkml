@@ -1,4 +1,5 @@
 include: "/views/*.view"
+include: "/derived_tables/*.view"
 
 explore: order_items {
   label: "(1) Orders, Products and Customers"
@@ -36,6 +37,12 @@ explore: order_items {
   join: pet_profiles {
     type: left_outer
     sql_on: ${customers.customer_id} = ${pet_profiles.customer_id} ;;
+    relationship: one_to_one
+  }
+  join: product_facts {
+    view_label: "Products"
+    type: left_outer
+    sql_on: ${products.product_id} = ${product_facts.product_id} ;;
     relationship: one_to_one
   }
 }

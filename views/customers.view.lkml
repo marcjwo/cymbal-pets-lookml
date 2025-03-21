@@ -23,6 +23,7 @@ view: customers {
     hidden: no
     type: string
     sql: ${TABLE}.address_state ;;
+    map_layer_name: us_states
   }
 
   dimension: email {

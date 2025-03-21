@@ -21,6 +21,7 @@ view: distribution_centers {
     hidden: no
     type: string
     sql: ${TABLE}.address_state ;;
+    map_layer_name: us_states
   }
   dimension: distribution_center_name {
     hidden: no

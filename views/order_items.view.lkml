@@ -1,3 +1,5 @@
+#this is a test
+
 view: order_items {
   sql_table_name: `@{gcp_project}.@{bq_dataset}.order_items` ;;
   drill_fields: [order_item_id]

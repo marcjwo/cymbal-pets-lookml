@@ -6,6 +6,8 @@ Navigate through our key business areas: Cymbal Pets and TheLook. Each section c
 
 Use the unified experience to [create reports in Looker](https://looker.cloud-bi-opm.com/reporting/create) or [start a conversation with your data](https://looker.cloud-bi-opm.com/conversation), all using the semantic layer curated on this instance.
 
+Use [go/bi-product-demo-guide](go/bi-product-demo-guide) for links to the demo flows for Looker Core + Gemini!
+
 ---
 
 ## Cymbal Pets 🐾
@@ -133,4 +135,5 @@ This section focuses on data related to our TheLook e-commerce platform.
     </tr>
    </table>
 
-**Need help?** Contact the [Cloud BI OPM Team](mailto:cloud-bi-opm-demos@google.com).
+
+**Notice any bug or feedback?** Reach out via [buganizer](https://b.corp.google.com/issues/new?component=1573195).
